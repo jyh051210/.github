@@ -119,3 +119,22 @@ graph LR
 
     style A fill:#f3e5f5
 ```
+
+## 文档贡献方向与计划
+
+OpenHUTB 的社区文档把项目入口、环境配置和贡献流程集中在一起。页面主要来自 `docs/`，网站导航由 `mkdocs.yml` 管理；根目录的 `CONTRIBUTING.md` 会在构建时复制到站点，所以贡献指南应修改根目录源文件。维护这些说明时，除了检查文字，还需要核对命令的执行位置、当前分支和页面生成后的效果。
+
+近期重点是补上读者实际操作时容易中断的几个环节：
+
+| 方向 | 具体改进 | 讨论与修改 |
+| --- | --- | --- |
+| Python 环境 | 不激活也能安装和运行，能确认当前解释器属于项目环境 | [问题 #438](https://github.com/OpenHUTB/.github/issues/438)、[修改 #443](https://github.com/OpenHUTB/.github/pull/443) |
+| 摘取提交 | 明确冲突后的继续、放弃和跳过，检查操作是否结束 | [问题 #439](https://github.com/OpenHUTB/.github/issues/439)、[修改 #445](https://github.com/OpenHUTB/.github/pull/445) |
+| 网站预览 | 在 Codespaces 中打开完整 MkDocs 页面，检查导航和插件效果 | [问题 #440](https://github.com/OpenHUTB/.github/issues/440)、[修改 #447](https://github.com/OpenHUTB/.github/pull/447) |
+| 论文绘图 | 保存实际绘图数据，重复读取后输出同一图幅的 PDF 和 PNG | [问题 #441](https://github.com/OpenHUTB/.github/issues/441)、[修改 #448](https://github.com/OpenHUTB/.github/pull/448) |
+
+以上修改已提交，后续先跟进对应审核意见，在原分支调整，并复查最终差异与页面。环境说明以解释器路径为依据，Git 操作以状态和提交记录为依据，绘图说明以保存的数据与实际输出为依据。
+
+下一步关注绘图辅助函数与文档示例的一致性。[问题 #442](https://github.com/OpenHUTB/.github/issues/442) 记录了 `get_fig_size` 返回迭代器后不能直接作为 `figsize` 使用的情况。后续结合维护者意见处理，检查只传宽度与同时传宽高两种用法，再核对文档中的同名代码。
+
+参与审核时，先看最终文件差异，再核对链接、配置含义和原有内容是否保留；发现具体问题就指出位置与影响，修改正确后再复核。
